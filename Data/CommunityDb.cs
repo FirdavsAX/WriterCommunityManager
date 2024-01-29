@@ -1,6 +1,7 @@
 using System;
 using System.Data.Entity;
 using System.Linq;
+using WriterCommunityManager.Models;
 
 namespace WriterCommunityManager.Data
 {
@@ -13,9 +14,12 @@ namespace WriterCommunityManager.Data
         // If you wish to target a different database and/or database provider, modify the 'CommunityDb' 
         // connection string in the application configuration file.
         public CommunityDb()
-            : base("name=CommunityDb")
+            : base("Data Source=DESKTOP-I4DJQII;Initial Catalog=WritersCommunity;Integrated Security=True;Pooling=False")
         {
         }
+
+        public virtual DbSet<Author> Author { get; set; }
+        public virtual DbSet<Book> Book { get; set; }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
